@@ -2,18 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style-type: none;
 }
 
 body {
   width: max-width;
-  height: fit-content;
+  height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.home {
-  width: 100%;
-  border-bottom: solid rgb(94, 55, 94, 0.15);
-  box-shadow: 0 0 2px rgb(94, 55, 94, 0.25);
   background: linear-gradient(
     90deg,
     rgba(79, 29, 140, 1) 50%,
@@ -21,29 +16,38 @@ body {
   );
 }
 
-.home main {
-  display: grid;
-  place-items: center;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.home main header {
+.top-header {
+  padding: 20px;
+}
+
+.top-header main {
+  display: grid;
+  place-items: center;
+  position: relative;
+  height: 10vh;
+}
+
+.top-header main header {
   width: 90%;
+  height: fit-content;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   border: 1px solid rgba(121, 118, 118, 0.5);
   padding: 10px;
   border-radius: 10px;
   box-shadow: 2px 2px 15px rgb(50, 50, 50);
   position: fixed;
-  top: 20px;
+  z-index: 1;
   background-color: #6b494995;
 }
 
-.home main header a {
-  text-decoration: none;
-}
-
-.home main header a h1 {
+.top-header main header h1 {
   padding: 5px 40px;
   background: linear-gradient(
     90deg,
@@ -55,63 +59,73 @@ body {
   cursor: pointer;
 }
 
-.home main header a h1:hover {
+.top-header main header h1:hover {
   transform: scale(1.1);
   transition: all 1s ease;
 }
 
-.home main header nav {
+.top-header main header nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
   padding: 5px 20px;
+  color: #fff;
+  
 }
 
-.home main header nav a {
-  text-decoration: none;
-  color: white;
+.top-header main header nav ul li {
+  position: relative;
+  padding-bottom: 5px;
 }
 
-.home main header nav a:hover {
-  border: 1px solid pink;
-  padding: 8px 10px;
-  border-radius: 25px;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.7) 2%,
-    rgba(196, 55, 173, 1) 100%
-  );
-  color: aqua;
+.top-header main header nav ul li::after {
+  content: '';
+  position: absolute;
+  border-bottom: solid violet;
+  width: 0%;
+  bottom: 0;
+  left: 0;
+  transition: all 0.5s linear;
 }
 
-.home .about-home {
+.top-header main header nav ul li:hover::after {
+  width: 100%;
+}
+
+.about-home {
+  display: grid;
+  place-items: center;
+  padding-top: 150px;
+}
+
+.about-home .about-details {
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 35px;
-  margin-bottom: 50px;
-  padding-top: 200px;
+  justify-content: center;
+  gap: 30px;
+  text-align: center;
 }
 
-.home .about-home .definition {
-  width: 50%;
+.about-home .definition {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
 }
 
-.home .about-home .definition h3 {
+.about-home .definition h3 {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.home .about-home .definition p:nth-child(2) {
+.about-home .definition p:nth-child(2) {
   font-size: 4rem;
   color: rgba(174, 41, 179, 1);
 }
 
-.home .about-home .definition p:nth-child(3) {
+.about-home .definition p:nth-child(3) {
   text-align: center;
   color: rgba(255, 255, 255, 0.7);
   font-size: 1.2rem;
@@ -119,12 +133,12 @@ body {
   padding: 20px;
 }
 
-.home .about-home .home-features {
+.about-home .home-features {
   display: flex;
   gap: 30px;
 }
 
-.home .about-home .home-features div {
+.about-home .home-features div {
   border: 1px solid rgb(82, 81, 81);
   text-align: center;
   padding: 40px;
@@ -133,27 +147,27 @@ body {
   box-shadow: 0 0 5px rgba(128, 128, 128, 0.5);
 }
 
-.home .about-home .home-features div:hover {
+.about-home .home-features div:hover {
   transform: scale(1.1);
   transition: all 1s ease;
   box-shadow: 0px 0px 40px rgb(137, 137, 137, 0.5);
 }
 
-.home .about-home .home-features div h2 {
+.about-home .home-features div h2 {
   color: rgba(174, 41, 179, 1);
   text-shadow: 0 0 1px black;
 }
 
-.home .about-home .home-features div h5 {
+.about-home .home-features div h5 {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.home .about-home .buttons {
+.about-home .buttons {
   display: flex;
   gap: 30px;
 }
 
-.home .about-home .buttons input {
+.about-home .buttons input {
   padding: 20px 35px;
   border-radius: 30px;
   background-color: transparent;
@@ -164,17 +178,17 @@ body {
   cursor: pointer;
 }
 
-.home .about-home .buttons input:nth-child(1) {
+.about-home .buttons input:nth-child(1) {
   color: white;
   border: 1px solid pink;
 }
 
-.home .about-home .buttons input:nth-child(2) {
+.about-home .buttons input:nth-child(2) {
   color: white;
   border: 1px solid pink;
 }
 
-.home .about-home .buttons input:nth-child(1):hover {
+.about-home .buttons input:nth-child(1):hover {
   border: 1px solid white;
   color: black;
   background: linear-gradient(
@@ -184,7 +198,7 @@ body {
   );
 }
 
-.home .about-home .buttons input:nth-child(2):hover {
+.about-home .buttons input:nth-child(2):hover {
   background: linear-gradient(
     90deg,
     rgba(255, 255, 255, 0.7) 2%,
@@ -195,11 +209,6 @@ body {
 }
 
 .quantum-capabilities {
-  background: linear-gradient(
-    90deg,
-    rgba(79, 29, 140, 1) 50%,
-    rgba(145, 71, 122, 1) 100%
-  );
   padding: 150px 50px;
 }
 
@@ -217,6 +226,7 @@ body {
   place-items: center;
   row-gap: 50px;
   margin: 0 50px;
+  position: relative;
 }
 
 .quantum-capabilities .capabilities div h1 {
@@ -276,70 +286,61 @@ p:nth-child(11) {
   border-radius: 20px;
 }
 
-.quantum-capabilities .capabilities .three {
-  width: 60%;
-}
-
-.quantum-capabilities .capabilities .four {
-  width: 70%;
-  border: 0.5px solid rgb(239, 117, 239, 0.4);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 40px 30px;
-  transform: skewX(350deg);
-  box-shadow: 2px 2px 15px rgb(137, 137, 137, 0.5);
-}
-
-.quantum-capabilities .capabilities .five {
-  width: 70%;
-  border: 0.5px solid rgb(239, 117, 239, 0.4);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 40px 30px;
-  transform: skewX(350deg);
-  box-shadow: 2px 2px 15px rgb(137, 137, 137, 0.5);
-}
-
+.quantum-capabilities .capabilities .three, 
 .quantum-capabilities .capabilities .six {
   width: 60%;
 }
 
+.quantum-capabilities .capabilities .four, .quantum-capabilities .capabilities .five {
+  width: 70%;
+  border: 0.5px solid rgb(239, 117, 239, 0.4);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 30px;
+  transform: skewX(350deg);
+  box-shadow: 2px 2px 15px rgb(137, 137, 137, 0.5);
+}
+
 .matrix-protocols {
-  background: linear-gradient(
-    90deg,
-    rgba(79, 29, 140, 1) 50%,
-    rgba(145, 71, 122, 1) 100%
-  );
-  padding: 50px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
 .matrix-protocols h2 {
   color: aqua;
   font-size: 4rem;
   text-align: center;
-  padding-bottom: 100px;
+  padding-top: 50px;
 }
 
-.matrix-protocols .protocols {
+.protocols {
+  padding: 50px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.protocols .protocols-1 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  row-gap: 50px;
   place-items: center;
   padding: 0 30px;
 }
 
-.matrix-protocols .protocols .pro-one,
+.protocols .protocols-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  margin: 0 370px;
+}
+
+.protocols .protocols-1 .pro-one,
 .pro-two,
 .pro-three,
-.pro-four,
-.pro-six,
-.pro-seven {
-  border: 1px solid black;
+.pro-four {
   transform: skew(340deg);
   padding: 20px;
   width: 70%;
@@ -351,36 +352,51 @@ p:nth-child(11) {
   gap: 10px;
 }
 
-.matrix-protocols .protocols div h1 {
+.protocols .protocols-2 .pro-five,
+.protocols .protocols-2 .pro-six {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+  gap: 10px;
+  padding: 20px;
+  width: 70%;
+  border-radius: 20px;
+  border: 0.5px solid rgba(59, 28, 59, 0.2);
+  box-shadow: 2px 2px 15px rgba(53, 50, 50, 0.3);
+  transform: skew(340deg);
+}
+
+.protocols .protocols-1 h1, .protocols .protocols-2 h1 {
   color: white;
 }
 
-.matrix-protocols .protocols div p:first-child,
+.protocols .protocols-1 div p:first-child,
 p:nth-child(4),
 p:nth-child(7),
 p:nth-child(10),
-p:nth-child(13),
-p:nth-child(16) {
+.protocols .protocols-2 p:nth-child(1),
+p:nth-child(4) {
   font-size: 55px;
   color: rgba(224, 18, 190, 1);
 }
 
-.matrix-protocols .protocols div p:nth-child(3),
+.protocols .protocols-1 div p:nth-child(3),
 p:nth-child(6),
 p:nth-child(9),
 p:nth-child(12),
-p:nth-child(15),
-p:nth-child(18) {
+.protocols .protocols-2 p:nth-child(3),
+p:nth-child(6) {
   color: rgba(255, 255, 255, 0.7);
 }
 
-.matrix-protocols .protocols .pro-one:hover,
-.matrix-protocols .protocols .pro-two:hover,
-.matrix-protocols .protocols .pro-three:hover,
-.matrix-protocols .protocols .pro-four:hover,
-.matrix-protocols .protocols .pro-six:hover,
-.matrix-protocols .protocols .pro-seven:hover {
-  transform: skew(0deg) scale(1.1);
+.protocols .protocols-1 .pro-one:hover,
+.protocols .protocols-1 .pro-two:hover,
+.protocols .protocols-1 .pro-three:hover,
+.protocols .protocols-1 .pro-four:hover,
+.protocols .protocols-2 .pro-five:hover,
+.protocols .protocols-2 .pro-six:hover {
+  transform: scale(1.1);
   transition: all 1s ease;
   box-shadow: 0px 0px 40px rgb(137, 137, 137, 0.5);
 }
@@ -390,12 +406,8 @@ p:nth-child(18) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 50px;
   padding: 150px 0 100px 0;
-  background: linear-gradient(
-    90deg,
-    rgba(79, 29, 140, 1) 50%,
-    rgba(145, 71, 122, 1) 100%
-  );
 }
 
 .evolution-timeline h2 {
@@ -405,20 +417,42 @@ p:nth-child(18) {
   padding-bottom: 100px;
 }
 
-.evolution-timeline .timeline {
+/* .evolution-timeline .timeline {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
   place-items: center;
   row-gap: 80px;
   padding: 0 100px;
+} */
+
+.evolution-timeline-total {
+  display: grid;
+  position: relative;
+  /* place-items: center; */
 }
 
-.evolution-timeline .timeline .timeline-one,
-.timeline-four,
-.timeline-five,
-.timeline-eight {
-  width: 80%;
+.evolution-timeline .evolution-timeline-one, .evolution-timeline .evolution-timeline-three {
+  display: grid;
+  place-items: start;
+  padding: 0 200px;
+}
+
+.evolution-timeline .evolution-timeline-two, .evolution-timeline .evolution-timeline-four {
+  display: grid;
+  place-items: end;
+  padding: 0 200px;
+}
+
+.evolution-timeline .evolution-timeline-one .timeline-one, .evolution-timeline .evolution-timeline-two .timeline-two, .evolution-timeline .evolution-timeline-three .timeline-three, .evolution-timeline .evolution-timeline-four .timeline-four {
+  display: grid;
+  width: 45%;
+}
+
+.evolution-timeline .evolution-timeline-one .timeline-one div,
+.evolution-timeline-two .timeline-two div,
+.evolution-timeline-three .timeline-three div,
+.evolution-timeline-four .timeline-four div {
   border: 0.5px solid rgba(105, 44, 105, 0.2);
   border-radius: 20px;
   box-shadow: 2px 2px 15px rgba(53, 50, 50, 0.4);
@@ -428,39 +462,45 @@ p:nth-child(18) {
   gap: 30px;
 }
 
-.evolution-timeline .timeline div h1 {
+.evolution-timeline h1 {
   color: rgba(174, 41, 179, 1);
   text-shadow: 0 0 1px black;
 }
 
-.evolution-timeline .timeline div h3 {
+.evolution-timeline h3 {
   color: white;
   font-size: 1.75rem;
 }
 
-.evolution-timeline .timeline div p {
+.evolution-timeline p {
   color: rgba(255, 255, 255, 0.7);
   font-size: 1rem;
 }
 
-.evolution-timeline .timeline .timeline-one:hover,
-.evolution-timeline .timeline .timeline-four:hover,
-.evolution-timeline .timeline .timeline-five:hover,
-.evolution-timeline .timeline .timeline-eight:hover {
+.evolution-timeline .evolution-timeline-one .timeline-one:hover,
+.evolution-timeline .evolution-timeline-two .timeline-two:hover,
+.evolution-timeline .evolution-timeline-three .timeline-three:hover,
+.evolution-timeline .evolution-timeline-four .timeline-four:hover {
   transform: scale(1.025);
   transition: all 5ms ease;
+  border-radius: 20px;
   box-shadow: 0px 0px 40px rgb(137, 137, 137, 0.5);
+}
+
+.evolution-timeline .evolution-timeline-total .intersect {
+  position: absolute;
+  height: 100%;
+  width: 0.5%;
+  left: 50%;
+  right: 50%;
+  background-color: rgb(200, 98, 113, 0.4);
+  border-radius: 5px;
 }
 
 .connection-transmission {
   display: grid;
   place-items: center;
   padding: 120px 0 100px 0;
-  background: linear-gradient(
-    90deg,
-    rgba(79, 29, 140, 1) 50%,
-    rgba(145, 71, 122, 1) 100%
-  );
 }
 
 .connection-transmission .connection {
@@ -494,7 +534,7 @@ p:nth-child(18) {
   .establish-connection
   .icons {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   font-size: 25px;
 }
 
@@ -503,9 +543,10 @@ p:nth-child(18) {
   .matrix-transmission
   .establish-connection
   .icons
-  i {
-    color: aqua;
-    cursor: pointer;
+  li {
+  border: 1px solid rgba(255, 192, 203, 0.5);
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .connection-transmission
@@ -513,12 +554,19 @@ p:nth-child(18) {
   .matrix-transmission
   .establish-connection
   .icons
-  i:hover {
-    transform: scale(1.2);
-    background-color: rgba(222, 184, 135, 0.5);
-    border-radius: 3px;
-    box-shadow: 0 0 5px gray;
-  }
+  i {
+  color: aqua;
+  cursor: pointer;
+}
+
+.connection-transmission
+  .connection
+  .matrix-transmission
+  .establish-connection
+  .icons
+  li:hover {
+  box-shadow: 0 0 10px gray;
+}
 
 .connection-transmission
   .connection
@@ -620,7 +668,7 @@ footer {
   );
 }
 
-footer .footer-one {
+footer .footer-one nav ul {
   display: flex;
   gap: 30px;
   padding: 10px 0;
@@ -628,8 +676,24 @@ footer .footer-one {
 
 footer .footer-one a {
   display: flex;
-  text-decoration: none;
   color: rgb(245, 242, 242, 0.8);
+  position: relative;
+  padding-bottom: 5px;
+}
+
+footer .footer-one a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  background-clip: border;
+  border-bottom: solid violet;
+  bottom: 0;
+  left: 0;
+  transition: all 0.5s linear;
+}
+
+footer .footer-one a:hover::after {
+  width: 100%;
 }
 
 footer .footer-two p {
